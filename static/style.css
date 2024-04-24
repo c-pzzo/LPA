@@ -25,25 +25,33 @@ h1{
 }
 
 .container{
+    width: 100%;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100vh;
 }
 
-.page_two{
-    background-color: rgb(209, 117, 117);
+.page_one {
+    background-color: rgb(250, 250, 250);
+    background: linear-gradient(to bottom, rgb(250, 250, 250), rgb(209, 117, 117)); 
 }
 
+.page_two {
+    background-color: rgb(209, 117, 117);
+    background: linear-gradient(to bottom, rgb(209, 117, 117), rgb(235, 194, 145));
+}
+
+
 .page_three{
-    background-color: rgb(235, 194, 145);
+    background: linear-gradient(to bottom, rgb(235, 194, 145), rgb(156, 186, 143));
 }
 
 .page_four{
-    background-color: rgb(156, 186, 143);
+    background: linear-gradient(to bottom, rgb(156, 186, 143), rgb(82, 154, 156));
 }
 
 .page_five{
-    background-color: rgb(82, 154, 156);
+    background: linear-gradient(to bottom, rgb(82, 154, 156), rgb(102, 90, 85));
 }
 
 .page_six{
