@@ -1,2 +1,0 @@
-# LPA
-Lights! Prompt! Action! 
