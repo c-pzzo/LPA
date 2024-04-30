@@ -309,3 +309,77 @@ def s4_AIimage_generation(main_script):
         p["ai_image_prompt"] = augment_prompt
 
     return main_script
+
+def AI_image_generation2(main_script, i):
+    response = client.images.generate(
+     model = "dall-e-3",
+     prompt = main_script["panels"][i]["ai_image_prompt"],
+     size = "1024x1024",
+     quality = "hd",
+     n=1,
+    )
+    
+    image_url = response.data[0].url
+    
+    response = requests.get(image_url)
+    image_data = response.content
+    original_image = Image.open(BytesIO(image_data))
+    
+    width, height = original_image.size 
+    
+    text_to_add = "PANEL DESCRIPTION: " + main_script['panels'][i]['panel_description']
+    
+    # Use textwrap to break text into lines based on available width
+    lines = textwrap.wrap(text_to_add, width=150)
+    
+    captions_text = main_script.get("panels", [{}])[i].get("captions")
+    
+    if captions_text:
+        lines += " "
+        lines += textwrap.wrap(captions_text, width=150)
+    
+    dialogue_text = main_script.get("panels", [{}])[i].get("dialogue")
+    
+    if dialogue_text:
+        lines += " "
+        lines += textwrap.wrap(dialogue_text, width=150)
+    
+    top_margin = 40
+    bottom_margin = 15 * (len(lines) + 3)
+    
+    new_width = width
+    new_height = height + top_margin + bottom_margin
+    
+    # Create a new image with added top and bottom margins
+    new_width = original_image.width
+    new_height = original_image.height + top_margin + bottom_margin
+    new_image = Image.new("RGB", (new_width, new_height), color="white")
+    new_image.paste(original_image, (0, top_margin))
+    
+    # Add text to the top margin
+    draw = ImageDraw.Draw(new_image)
+    font = ImageFont.load_default(30)
+    
+    draw.text((10, 0), f"Title: {main_script['title']}", fill =(0, 0, 0),font=font)
+    draw.text((width * 3 //4 + 100 , 0), f"Panel: {main_script['panels'][i]['panel_number']}", fill =(0, 0, 0),font=font)
+    
+    bottom_font_size = 15
+    font = ImageFont.load_default(bottom_font_size)
+    
+    # Calculate starting position for the first line
+    current_y = height + top_margin + bottom_font_size  # Adjust for margin and spacing
+    
+    for line in lines:
+        # Get text width using textlength
+        text_width = draw.textlength(line, font=font)
+    
+        # Calculate approximate text height based on font size
+        text_height = font.size  # Assuming single-line text
+    
+        # Draw the text on the image
+        draw.text((10, current_y), line, fill=(0, 0, 0), font=font)
+    
+        # Update current position for next line
+        current_y += text_height + 5  # Adjust for line spacing
+    
+    new_image.save(f"images/{i+1}_{main_script['title'].replace(' ', '_')}.jpg")
