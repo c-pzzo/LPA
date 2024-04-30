@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Processor</title>
+    <style>
+        .password-input {
+            -webkit-text-security: disc; /* Safari and Chrome */
+            -moz-text-security: disc; /* Firefox */
+            text-security: disc; /* Standard */
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Processor</h1>
+    Please enter the following API Keys: <br><br>
+    <form action="/apiTest" method="POST">
+        GoogleAI: <input type="password" name="google_APIKey_input" id="googleAPIKeyInput" class="password-input" required>
+        <button type="submit" name="google_APIKey_button">Test GoogleAI</button>
+    </form>
+    <p id="google_APIKey">{{ google_APIKey_html }}</p>
+
+    <form action="/apiTest" method="POST">
+        OpenAI  : <input type="password" name="openAI_APIKey_input" id="openAIKeyInput" class="password-input" required>
+        <button type="submit" name="openAI_APIKey_button">Test OpenAI</button>
+    </form>
+    <p id="openAI_APIKey">{{ openAI_APIKey_html }}</p>
+</body>
+</html>
