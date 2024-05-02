@@ -1,15 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Mulish", sans-serif;
-}
-
-body {
-    border: 0px solid purple;
-}
 
 section {
     height: 100vh;
@@ -18,11 +8,6 @@ section {
     scroll-snap-align: start;
 }
 
-h1 {
-    color: rgb(226, 226, 226);
-    text-shadow: 1px 1px 4px #000;
-    font-size: 50px;
-}
 
 .container {
     width: 100%;
@@ -31,55 +16,11 @@ h1 {
     height: 100vh;
 }
 
-.page_one {
-    background-color: rgb(0, 0, 0);
-}
-
-.page_two {
+.carousel-inner {
     background: linear-gradient(to bottom, rgb(209, 117, 117), rgb(235, 194, 145));
     background-color: #f0f0f0; /* Light grey background */
-    padding: 20px;
-    margin-top: 20px;
     border-radius: 5px;
-    position: relative; /* Ensure relative positioning for absolute elements */
-}
-
-.page_two h1 {
-    color: #333; /* Dark grey color for the heading */
-}
-
-.page_two p {
-    font-size: 16px;
-    color: #666; /* Medium grey color for text */
-}
-
-/* Carousel adjustments */
-.carousel-item {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Center the content vertically */
-    height: 90vh; /* Set height of carousel items to fit section height */
-    position: relative; /* Ensure relative positioning for absolute elements */
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    z-index: 1000; /* Ensure controls appear above carousel items */
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    position: absolute;
-    top: 50%; /* Position controls vertically centered */
-    transform: translateY(-50%); /* Adjust position */
-}
-
-.carousel-indicators {
-    position: absolute; /* Position indicators relative to the carousel items */
-    bottom: 10px; /* Adjust the bottom spacing */
-    left: 50%; /* Center the indicators horizontally */
-    transform: translateX(-50%); /* Center the indicators horizontally */
-    z-index: 1000; /* Ensure indicators appear above carousel items */
+    position: relative; 
 }
 
 ::-webkit-scrollbar {
@@ -94,3 +35,43 @@ h1 {
     background: linear-gradient(to bottom,  rgb(209, 117, 117), rgb(102, 90, 85));
     border-radius: 10px;
 }
+
+.carousel-item {
+    height: 100vh; 
+    position: relative;
+}
+
+.carousel-item img {
+    width: 1024px; 
+    height: 1024px;
+    position: absolute;
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+.carousel-control-prev, 
+.carousel-control-next {
+    z-index: 1000; 
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+}
+
+.carousel-caption {
+    max-width: 90%; 
+    position: absolute;
+    left: 50%;
+    bottom: 60px;
+    transform: translateX(-50%);
+    text-align: left; 
+    z-index: 1000;
+    color: #fff; 
+    padding: 15px; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); 
+}      
