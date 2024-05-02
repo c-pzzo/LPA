@@ -34,7 +34,8 @@ A GenAI product with No-Code tools from the user.
 - Incorporate concepts about cinematic shots for AI Image prompts.
 
 # Instructions:
-1. Open the file /python/LPA.ipynb
+0. Create an environment to run, and install the /python/requirements.txt
+1. Open the file /python/LPA-Main.ipynb
 2. Go to the end of the notebook in the "Test" section
 3. Insert values for `openai_api_key` and `googleai_api_key` for AI Image generation and Text Generation respectively
 4. Start with a vague idea for a story with the goal of entertainment, business, or education.
