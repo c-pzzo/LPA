@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Mulish", sans-serif;
+}
+
+body{
+    border: 0px solid purple;   
+}
+
+section{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    scroll-snap-align: start;
+}
+
+h1{
+    color: rgb(226, 226, 226);
+    text-shadow: 1px 1px 4px #000;
+    font-size: 50px;
+}
+
+.container{
+    width: 100%;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.page_one {
+    background-color: rgb(0, 0, 0);
+}
+
+.page_two {
+    background: linear-gradient(to bottom, rgb(209, 117, 117), rgb(235, 194, 145));
+}
+
+.page_two {
+    background-color: #f0f0f0; /* Light grey background */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.page_two h1 {
+    color: #333; /* Dark grey color for the heading */
+}
+
+.page_two p {
+    font-size: 16px;
+    color: #666; /* Medium grey color for text */
+}
+
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+
+::-webkit-scrollbar-track{
+    background: #d1e5ff;
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(to bottom,  rgb(209, 117, 117), rgb(102, 90, 85));
+    border-radius: 10px;
+}
